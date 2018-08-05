@@ -1,0 +1,16 @@
+/.gradle/
+/.idea/
+bin/
+.settings/
+.classpath
+.project
+/test-output/
+build/
+/.gwt/
+/.gwt-tmp/
+/gwt-unitCache/
+*.log
+*.iml
+*.ipr
+*.iws
+*.out
