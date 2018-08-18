@@ -5,6 +5,8 @@ import kz.greetgo.ekolpakov.util.ClassResourceLoader;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.util.introspection.UberspectImpl;
+import org.apache.velocity.util.introspection.UberspectPublicFields;
 
 import java.io.StringWriter;
 import java.util.Properties;
@@ -21,6 +23,8 @@ public class Probe {
     pp.setProperty("file.resource.loader.from-class", Templates.class.getName());
     pp.setProperty("file.resource.loader.cache", "true");
     pp.setProperty("file.resource.loader.modificationCheckInterval", "2");
+    pp.setProperty("runtime.introspector.uberspect",
+      UberspectImpl.class.getName() + ", " + UberspectPublicFields.class.getName());
 
     VelocityEngine ve = new VelocityEngine();
     ve.setProperty(VelocityEngine.RUNTIME_LOG_NAME, "local-engine");
@@ -29,9 +33,13 @@ public class Probe {
 
     VelocityContext velocityContext = new VelocityContext();
 
-    velocityContext.put("name", "Velocity");
+    Page page = new Page();
+    page.title = "Page title";
 
-    Template template = ve.getTemplate("asd.vm");
+    velocityContext.put("name", "Velocity");
+    velocityContext.put("page", page);
+
+    Template template = ve.getTemplate("probe.vm");
 
     StringWriter sw = new StringWriter();
 
