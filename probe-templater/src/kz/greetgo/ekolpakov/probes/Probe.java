@@ -1,5 +1,6 @@
 package kz.greetgo.ekolpakov.probes;
 
+import kz.greetgo.ekolpakov.html.HtmlCorrector;
 import kz.greetgo.ekolpakov.templates.Templates;
 import kz.greetgo.ekolpakov.util.ClassResourceLoader;
 import org.apache.velocity.Template;
@@ -25,6 +26,8 @@ public class Probe {
     pp.setProperty("file.resource.loader.modificationCheckInterval", "2");
     pp.setProperty("runtime.introspector.uberspect",
       UberspectImpl.class.getName() + ", " + UberspectPublicFields.class.getName());
+    pp.setProperty("input.encoding", "UTF-8");
+    pp.setProperty("directive.foreach.maxloops", "-1");
 
     VelocityEngine ve = new VelocityEngine();
     ve.setProperty(VelocityEngine.RUNTIME_LOG_NAME, "local-engine");
@@ -45,6 +48,8 @@ public class Probe {
 
     template.merge(velocityContext, sw);
 
-    System.out.println("result = [[" + sw.toString() + "]]");
+    HtmlCorrector html = HtmlCorrector.of(sw.toString());
+
+    System.out.println("html = [[" + html.result() + "]]");
   }
 }
