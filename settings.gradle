@@ -1,2 +1,3 @@
 rootProject.name = 'ekolpakov'
 include 'client'
+include 'probe-free-marker'

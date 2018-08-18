@@ -1,0 +1,5 @@
+dependencies {
+  compile 'org.apache.velocity:velocity-engine-core:2.0'
+  compile 'org.apache.velocity:velocity-engine-scripting:2.0'
+  compile 'org.slf4j:slf4j-log4j12:1.7.25'
+}
