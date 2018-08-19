@@ -1,0 +1,5 @@
+dependencies {
+  compile "kz.greetgo.mvc:greetgo.mvc:$mvcVersion"
+  compile "kz.greetgo.depinject:greetgo.depinject:$depinjectVersion"
+  compile "kz.greetgo:greetgo.util:$utilVersion"
+}

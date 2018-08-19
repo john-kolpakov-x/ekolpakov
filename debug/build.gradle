@@ -1,0 +1,9 @@
+dependencies {
+  compile project(':register')
+
+  compile "kz.greetgo.mvc:greetgo.mvc.jetty:$mvcVersion"
+  compile "kz.greetgo.depinject:greetgo.depinject.gen:$depinjectVersion"
+
+//  compile "org.eclipse.jetty:jetty-server:$jettyVersion"
+//  compile "org.eclipse.jetty:jetty-webapp:$jettyVersion"
+}
