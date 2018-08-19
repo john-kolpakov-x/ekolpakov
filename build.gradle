@@ -16,8 +16,8 @@ allprojects {
 
   version = '0.0.1'
 
-  sourceCompatibility = '1.8'
-  targetCompatibility = '1.8'
+  sourceCompatibility = '10'
+  targetCompatibility = '10'
 
   test.useTestNG()
 
