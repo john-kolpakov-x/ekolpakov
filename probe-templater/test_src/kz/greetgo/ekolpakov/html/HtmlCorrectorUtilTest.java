@@ -37,7 +37,7 @@ public class HtmlCorrectorUtilTest {
       assertThat(a.innerText()).isEqualTo("ref 1");
       assertThat(a.hrefQuote()).isEqualTo('"');
       a.seoHidden = true;
-      assertThat(a.fullText()).isEqualTo("<aa x='asd' href=\"http://localhost/1.html\" y='ewq'>ref 1</aa>");
+      assertThat(a.fullText()).isEqualTo("<a-a x='asd' href=\"http://localhost/1.html\" y='ewq'>ref 1</a-a>");
     }
     {
       StringBuilder sb = new StringBuilder();
@@ -66,7 +66,7 @@ public class HtmlCorrectorUtilTest {
     assertThat(a.innerText()).isEqualTo("REF 13");
     assertThat(a.hrefQuote()).isEqualTo('\'');
     a.seoHidden = true;
-    assertThat(a.fullText()).isEqualTo("<aa href='http://localhost/13.html'>REF 13</aa>");
+    assertThat(a.fullText()).isEqualTo("<a-a href='http://localhost/13.html'>REF 13</a-a>");
   }
 
   @Test

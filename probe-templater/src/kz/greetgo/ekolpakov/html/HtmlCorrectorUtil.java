@@ -8,8 +8,8 @@ public class HtmlCorrectorUtil {
 
   public static final String ANCHOR_START = "<a ";
   public static final String ANCHOR_FINISH = "</a>";
-  public static final String HIDDEN_ANCHOR_START = "<aa ";
-  public static final String HIDDEN_ANCHOR_FINISH = "</aa>";
+  public static final String HIDDEN_ANCHOR_START = "<a-a ";
+  public static final String HIDDEN_ANCHOR_FINISH = "</a-a>";
   private static final String HREF = "href";
 
   public static void parse(List<HtmlPart> partList, String content) {
