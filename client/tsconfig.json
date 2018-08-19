@@ -15,7 +15,7 @@
     ],
     "paths": {
       "@/*": [
-        "ts/*"
+        "source/*"
       ]
     },
     "lib": [
@@ -26,8 +26,8 @@
     ]
   },
   "include": [
-    "ts/**/*.ts",
-    "ts/**/*.tsx"
+    "source/**/*.ts",
+    "source/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

@@ -1,8 +1,10 @@
+// import '../styles/main.scss'
+
 class Asd {
   public world: string = 'World!';
 
   printHelloWorld() {
-    console.log("hello, " + this.world);
+    console.log("Hello, " + this.world);
   }
 }
 
