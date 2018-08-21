@@ -1,6 +1,5 @@
 rootProject.name = 'ekolpakov'
 include 'client'
-include 'probe-templater'
 include 'controller'
 include 'register'
 include 'debug'
