@@ -2,4 +2,7 @@ dependencies {
   compile "kz.greetgo.mvc:greetgo.mvc:$mvcVersion"
   compile "kz.greetgo.depinject:greetgo.depinject:$depinjectVersion"
   compile "kz.greetgo:greetgo.util:$utilVersion"
+
+  compile 'org.apache.velocity:velocity-engine-core:2.0'
+  compile 'org.apache.velocity:velocity-engine-scripting:2.0'
 }

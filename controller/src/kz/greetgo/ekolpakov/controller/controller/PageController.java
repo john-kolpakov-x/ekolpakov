@@ -8,13 +8,13 @@ import kz.greetgo.mvc.annotations.on_methods.OnGet;
 import kz.greetgo.mvc.model.MvcModel;
 
 @Bean
-@ControllerPrefix("/auth")
-public class AuthController implements Controller {
+@ControllerPrefix("/page")
+public class PageController implements Controller {
 
-  @AsIs
-  @OnGet("/probe")
-  public String probe() {
-    return "probe OK";
+  @OnGet("/asd")
+  public String asd(MvcModel model) {
+    model.setParam("asd", "Hello from asd");
+    return "asd.vm";
   }
 
 }

@@ -4,6 +4,8 @@ dependencies {
   compile "kz.greetgo.mvc:greetgo.mvc.jetty:$mvcVersion"
   compile "kz.greetgo.depinject:greetgo.depinject.gen:$depinjectVersion"
 
+  compile 'org.slf4j:slf4j-log4j12:1.7.25'
+
 //  compile "org.eclipse.jetty:jetty-server:$jettyVersion"
 //  compile "org.eclipse.jetty:jetty-webapp:$jettyVersion"
 }

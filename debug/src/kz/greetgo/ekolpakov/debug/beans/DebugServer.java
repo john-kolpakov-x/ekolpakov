@@ -24,7 +24,7 @@ public class DebugServer implements HasAfterInject {
 
   @Override
   public void afterInject() {
-    File dist = Modules.client().resolve("dist").toFile();
+    File dist = Modules.client().resolve("build").resolve("dist").toFile();
 
     if (!dist.exists()) {
       mustTrue(dist.mkdirs());
