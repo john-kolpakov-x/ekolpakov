@@ -1,15 +1,32 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat'
+@import 'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c'
 
 @import "~bootstrap/scss/bootstrap-grid"
 
 html
-  padding: 0
-  margin: 0
-  font-size: 14px
+  font-size: 16px
 
 body
-  font-family: Montserrat, sans-serif
-  font-size: 2rem
+  padding: 0
+  margin: 0
+  font-family: 'M PLUS Rounded 1c', sans-serif
+  font-size: 1rem
 
-h1
-  font-style: italic
+h3
+  font-size: 1.17rem
+
+@mixin brd($color)
+  border: 1px solid $color
+
+.row
+  div
+    @include brd(green)
+
+.nav
+  ul
+    li
+      display: inline-block
+      &:hover
+        color: green
+      a
+        text-decoration: none
+        color: #2507E9
