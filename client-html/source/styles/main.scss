@@ -1,0 +1,32 @@
+@import 'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c';
+@import "~bootstrap/scss/bootstrap-grid";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1rem;
+}
+
+h3 {
+  font-size: 1.17rem;
+}
+
+.row div {
+  border: 1px solid green;
+}
+
+.nav ul li {
+  display: inline-block;
+  :hover {
+    color: green;
+  }
+  a {
+    text-decoration: none;
+    color: #2507E9;
+  }
+}
