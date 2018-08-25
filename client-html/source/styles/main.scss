@@ -4,10 +4,11 @@
 
 $color-content-bg: white;
 $color-bg: #fff0dc;
-$color-ref: #2507E9;
+$color-ref: #307d90;
 
 html {
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 body {
@@ -39,13 +40,42 @@ p {
   border-bottom: solid 1px darken($color-content-bg, 20);
 }
 
+$transition: 0.2s;
+
 .nav ul {
   li {
     //border: aqua 1px solid;
     display: inline-block;
     margin-right: -4px;
-    :hover {
-      color: green;
+    position: relative;
+    transition: $transition;
+    color: $color-ref;
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: $color-ref;
+      height: 2px;
+      left: 0;
+      right: 0.6rem;
+      bottom: 0.1rem;
+      z-index: -1;
+      transition: $transition;
+      transform: scale(0);
+    }
+
+    &:hover {
+      color: darken($color-ref, 20);
+      &::before {
+        content: '';
+        position: absolute;
+        background-color: darken($color-ref, 20);
+        height: 2px;
+        left: 0;
+        right: 0.6rem;
+        bottom: 0.1rem;
+        z-index: -1;
+        transform: scale(1);
+      }
     }
     a {
       display: inline-block;
@@ -54,6 +84,11 @@ p {
       padding-right: 0.7rem;
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
+      transition: $transition;
+      &:hover {
+        color: darken($color-ref, 20);
+        transition: $transition;
+      }
     }
   }
 }
