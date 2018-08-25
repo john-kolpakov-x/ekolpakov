@@ -1,5 +1,10 @@
-@import 'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c';
+@import 'https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700';
 @import "~bootstrap/scss/bootstrap-grid";
+@import "reset";
+
+$color-content-bg: white;
+$color-bg: #fff0dc;
+$color-ref: #2507E9;
 
 html {
   font-size: 16px;
@@ -10,23 +15,64 @@ body {
   margin: 0;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-size: 1rem;
+  background-color: $color-bg;
+  line-height: 1.56rem;
 }
 
 h3 {
   font-size: 1.17rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .row div {
-  border: 1px solid green;
+  //border: 1px solid green;
 }
 
-.nav ul li {
-  display: inline-block;
-  :hover {
-    color: green;
+.header-panel {
+  border-bottom: solid 1px darken($color-content-bg, 20);
+}
+
+.nav ul {
+  li {
+    //border: aqua 1px solid;
+    display: inline-block;
+    margin-right: -4px;
+    :hover {
+      color: green;
+    }
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: $color-ref;
+      padding-right: 0.7rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+    }
   }
-  a {
-    text-decoration: none;
-    color: #2507E9;
+}
+
+.content, .right {
+  background-color: $color-content-bg;
+  margin-top: 1rem;
+  padding: 0.9rem;
+  text-align: justify;
+  //border-radius: 0.5rem;
+  //box-shadow: inset -0.3rem -0.3rem darken($color-content-bg, 20);
+}
+
+.right {
+  font-size: 0.9rem;
+  h4 {
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
+    border-bottom: antiquewhite 1px solid;
   }
 }

@@ -57,7 +57,7 @@ task('sass-watch', () => {
   gulp.watch(paths.styles.srcWatch, ser('sass'))
 });
 
-task('clean', () => del(['build']));
+task('clean', () => del(['build/dest']));
 
 task('browser-sync', () => {
   browserSync.init({
@@ -68,6 +68,7 @@ task('browser-sync', () => {
 });
 
 task('watch', ser(
+  'clean',
   par('sass', 'rigger'),
   par('sass-watch', 'rigger-watch', 'browser-sync'))
 );
