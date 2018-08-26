@@ -4,10 +4,18 @@
       <div class="col-md-8 offset-1">
         <div class="nav">
           <ul>
-            <li><a href="#">Главная страница</a></li>
-            <li><a href="#">Блоги</a></li>
-            <li><a href="#">Форум</a></li>
+            <li><a onclick="pageRefClick(this)" id="page-main" href="#1">Главная страница</a></li>
+            <li><a onclick="pageRefClick(this)" id="page-blog" href="#2">Блоги</a></li>
+            <li><a onclick="pageRefClick(this)" id="page-forum" href="#3">Форум</a></li>
+            <li><a onclick="pageRefClick(this)" id="page-notes" href="#4">Заметки</a></li>
           </ul>
+          <script>
+            function pageRefClick(a) {
+              for (const id of ["page-main", "page-blog", "page-forum", "page-notes"]) {
+                document.getElementById(id).classList.toggle("active", a.id === id);
+              }
+            }
+          </script>
         </div>
       </div>
     </div>

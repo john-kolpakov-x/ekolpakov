@@ -23,6 +23,11 @@ const paths = {
     srcWatch: 'source/styles/**/*',
     dest: 'build/dest/css/'
   },
+  img: {
+    src: ['source/img/**/*.png'],
+    srcWatch: ['source/img/**/*'],
+    dest: 'build/dest/img/'
+  },
 };
 
 task('start', (ok) => {
@@ -57,6 +62,16 @@ task('sass-watch', () => {
   gulp.watch(paths.styles.srcWatch, ser('sass'))
 });
 
+task('img', () => {
+  return gulp.src(paths.img.src)
+    .pipe(gulp.dest(paths.img.dest))
+    ;
+});
+
+task('img-watch', () => {
+  gulp.watch(paths.img.srcWatch, ser('img'))
+});
+
 task('clean', () => del(['build/dest']));
 
 task('browser-sync', () => {
@@ -69,6 +84,6 @@ task('browser-sync', () => {
 
 task('watch', ser(
   'clean',
-  par('sass', 'rigger'),
-  par('sass-watch', 'rigger-watch', 'browser-sync'))
+  par('sass', 'rigger', 'img'),
+  par('sass-watch', 'rigger-watch', 'img-watch', 'browser-sync'))
 );
