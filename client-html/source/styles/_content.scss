@@ -4,6 +4,12 @@
   margin-top: 1rem;
   padding: 0.9rem;
   text-align: justify;
+  p::first-letter {
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    padding-right: 0.3rem;
+  }
   //border-radius: 0.5rem;
   //box-shadow: inset -0.3rem -0.3rem darken($color-content-bg, 20);
 }
@@ -15,5 +21,15 @@
     padding-bottom: 0.5rem;
     margin-bottom: 0.2rem;
     border-bottom: antiquewhite 1px solid;
+  }
+  p {
+    margin-top: 0.1rem;
+    margin-bottom: 0;
+  }
+  p::first-letter {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    padding-right: 0.3rem;
   }
 }
