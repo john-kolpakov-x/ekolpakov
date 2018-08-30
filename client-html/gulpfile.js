@@ -9,7 +9,6 @@ const notify = require('gulp-notify');
 const tildeImporter = require('node-sass-tilde-importer');
 const browserSync = require('browser-sync').create();
 const rigger = require('gulp-rigger');
-const pageBuilder = require('gulp-pagebuilder');
 
 const paths = {
   dest: 'build/dest/',
@@ -45,14 +44,7 @@ task('rigger', () => {
 });
 
 task('rigger-watch', () => {
-  gulp.watch(paths.rigger.srcWatch, ser('rigger'))
-});
-
-task('build-pages', () => {
-  return gulp.src(paths.rigger.src)
-    .pipe(pageBuilder(paths.rigger.root))
-    .pipe(gulp.dest(paths.rigger.dest))
-    ;
+  gulp.watch(paths.rigger.srcWatch, ser('rigger'));
 });
 
 task('sass', () => {

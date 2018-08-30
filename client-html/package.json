@@ -13,7 +13,6 @@
     "del": "^3.0.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-notify": "^3.2.0",
-    "gulp-pagebuilder": "^0.1.4",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
