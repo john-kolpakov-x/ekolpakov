@@ -15,6 +15,17 @@
                 document.getElementById(id).classList.toggle("active", a.id === id);
               }
             }
+
+            console.log("location.href = " + location.pathname);
+            if (location.pathname === '/forum.html') {
+              document.getElementById("page-forum").classList.add("active");
+            }
+            if (location.pathname === '/') {
+              document.getElementById("page-main").classList.add("active");
+            }
+            if (location.pathname === '/index.html') {
+              document.getElementById("page-main").classList.add("active");
+            }
           </script>
         </div>
       </div>
