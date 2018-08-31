@@ -13,6 +13,7 @@
   <div class="col-md-8">
     <div class="forum-content">
       <div class="message-number"><a href="/forum.html#msg-17gt5ay6s7d">Сообщение № 1</a></div>
+      <div class="menu-btn"><span></span></div>
       <h3>Заголовок поста форума с серьёзным обсуждением на серьёзную тему</h3>
       <p>
         И так, здесь мы будем обсуждать серьёзную тему, и наши намерения будут очень серьёзны,
@@ -44,6 +45,7 @@
   <div class="col-md-8">
     <div class="forum-content">
       <div class="message-number"><a href="/forum.html#msg-123df4t5">Сообщение № 2</a></div>
+      <div class="menu-btn"><span></span></div>
       <p>
         Да. Серьёзная тема должна очень серьёзно обсуждаться.
       </p>
@@ -76,6 +78,7 @@
   <div class="col-md-8">
     <div class="forum-content">
       <div class="message-number"><a href="/forum.html#msg-12w4er3sD34">Сообщение № 3</a></div>
+      <div class="menu-btn"><span></span></div>
       <p>
         Зашли в гостиницу переобуться и отправились знакомиться с Дотонбори. С каждым шагом Осака нравилась все больше и
         больше, удивительно живой и прекрасный город. Посмотрели на живых фугу в аквариуме и решили попробовать говядину
@@ -110,6 +113,7 @@
   <div class="col-md-8">
     <div class="forum-content">
       <div class="message-number"><a href="/forum.html#msg-12w4u2u2ui4">Сообщение № 4</a></div>
+      <div class="menu-btn"><span></span></div>
       <p>
         Музейчик маленький, но милый, самое забавное это коллекция сырья на стеллажах, дегустационный зал
         очаровательный, есть открытая терраса со столиками и приятным видом. Дальше было неожиданно. Дегустировать вы
@@ -171,3 +175,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  for (const elem of document.getElementsByClassName("menu-btn")) {
+    elem.addEventListener('click', () => {
+      elem.classList.toggle('active');
+    });
+  }
+</script>

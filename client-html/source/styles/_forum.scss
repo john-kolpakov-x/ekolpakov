@@ -33,32 +33,18 @@
     color: lighten($color-ref, 30%);
     font-size: 0.6rem;
     line-height: 0.6rem;
-    top: 0.1rem;
-    right: 0.3rem;
+    top: 0.25rem;
+    right: 1.5rem;
     a {
       color: lighten($color-ref, 30%);
       text-decoration: none;
     }
   }
-}
 
-.pager-content {
-  background-color: $color-content-bg;
-  margin-top: 1rem;
-  padding: 0.9rem;
-
-  input {
-    width: 3rem;
-    text-align: center;
-  }
-
-  a {
-    color: darken($color-ref, 5%);
-    text-decoration: none;
-  }
-
-  .current {
-    font-weight: 600;
+  .menu-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
 
@@ -73,6 +59,7 @@
   .name {
     display: inline-block;
     vertical-align: middle;
+    margin-right: 0.3rem;
   }
 
   .avatar img {
