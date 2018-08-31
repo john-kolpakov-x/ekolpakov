@@ -37,15 +37,19 @@
     }
 
     span::before {
-      transform: rotate(-35deg);
-      width: 0.7rem;
-      transform-origin: left bottom;
+      transform: rotate(-45deg);
+      width: 1rem;
+      //transform-origin: left bottom;
     }
 
     span::after {
-      transform: rotate(35deg);
-      width: 0.7rem;
-      transform-origin: left top;
+      transform: rotate(45deg);
+      width: 1rem;
+      //transform-origin: left top;
+    }
+
+    span {
+      height: 0;
     }
   }
 }
