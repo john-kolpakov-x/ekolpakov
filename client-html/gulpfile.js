@@ -22,12 +22,16 @@ const paths = {
   styles: {
     src: 'source/styles/*.scss',
     srcWatch: 'source/styles/**/*',
-    dest: 'build/dest/css/'
+    dest: 'build/dest/css/',
   },
   img: {
     src: ['source/img/**/*.png'],
     srcWatch: ['source/img/**/*'],
-    dest: 'build/dest/img/'
+    dest: 'build/dest/img/',
+  },
+  copy_bootstrap_grid: {
+    from: "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+    dest: 'build/dest/css/',
   },
 };
 
@@ -72,6 +76,11 @@ task('img-watch', () => {
   gulp.watch(paths.img.srcWatch, ser('img'))
 });
 
+task('copy-bootstrap-grid', () => {
+  return gulp.src(paths.copy_bootstrap_grid.from)
+    .pipe(gulp.dest(paths.copy_bootstrap_grid.dest));
+});
+
 task('clean', () => del(['build/dest']));
 
 task('browser-sync', () => {
@@ -84,6 +93,6 @@ task('browser-sync', () => {
 
 task('watch', ser(
   'clean',
-  par('sass', 'rigger', 'img'),
+  par('sass', 'rigger', 'img', 'copy-bootstrap-grid'),
   par('sass-watch', 'rigger-watch', 'img-watch', 'browser-sync'))
 );
