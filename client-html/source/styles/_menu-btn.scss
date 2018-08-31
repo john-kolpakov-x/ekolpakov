@@ -39,17 +39,53 @@
     span::before {
       transform: rotate(-45deg);
       width: 1rem;
-      //transform-origin: left bottom;
     }
 
     span::after {
       transform: rotate(45deg);
       width: 1rem;
-      //transform-origin: left top;
     }
 
     span {
       height: 0;
     }
   }
+}
+
+.message-menu-back {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  //background-color: aqua;
+  z-index: 1;
+  cursor: crosshair;
+}
+
+.message-menu {
+  position: absolute;
+  right: 1.5rem;
+  top: 0;
+  z-index: 2;
+  background-color: #fff;
+  border: $color-ref 1px solid;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  color: $color-ref;
+  cursor: default;
+
+  ul {
+
+    li {
+      white-space: nowrap;
+      padding: 0.5rem;
+
+      &:hover {
+        //background-color: #90ffa1;
+        background-color: lighten($color-ref, 50%);
+      }
+    }
+  }
+
 }
