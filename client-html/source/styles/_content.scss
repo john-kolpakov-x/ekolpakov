@@ -1,8 +1,11 @@
 
-.content, .right {
+.content, .sidebar {
   background-color: $color-content-bg;
   margin-top: 1rem;
-  padding: 0.9rem;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
   text-align: justify;
   p::first-letter {
     font-size: 2rem;
@@ -12,8 +15,10 @@
   }
 }
 
-.right {
+.sidebar {
   font-size: 0.9rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   h4 {
     font-weight: 700;
     padding-bottom: 0.5rem;
@@ -29,5 +34,26 @@
     font-family: 'Playfair Display', serif;
     font-weight: 900;
     padding-right: 0.3rem;
+  }
+  a {
+    color: $color-ref;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: 0.06rem;
+      left: 0;
+      background-color: $color-ref;
+      transform: scale(0);
+      transform-origin: right;
+      transition: 0.2s;
+    }
+    &:hover::after {
+      transform: scale(1);
+    }
   }
 }

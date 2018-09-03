@@ -12,27 +12,39 @@
     программ, да и особо не было желания выяснять что там и как.
   </p>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque delectus ea earum error esse facilis
-    illo, ipsam minus natus pariatur placeat, quisquam ratione soluta voluptates. Ipsam iure minima molestias
-    obcaecati vero. Ab ad adipisci alias amet architecto at atque commodi deserunt dolor dolorum ducimus enim
-    expedita hic in minus nihil nisi pariatur perferendis quo quod repellat repellendus repudiandae sint, temporibus
-    unde ut, veritatis. At debitis dolorem id, libero odio placeat quibusdam quidem rerum veritatis voluptates.
-    Atque aut error fugit mollitia nisi nobis non vero. Aspernatur dolorem doloremque itaque sit. Ab architecto
-    corporis eius ipsa sapiente veniam veritatis voluptate? Atque.
+    Профессия менеджера продукта становится одной из самых востребованных в России. Продактами «не рождаются, ими
+    становятся», при чем зачастую те, кто работал в смежных областях или вообще с нуля решил прийти в профессию. При
+    этом если эта профессия требует постоянно развития, а быть продакт-менеджером в крупной или средней компании,
+    столкнувшейся с цифровыми изменениями, – новый вызов. Ожидания клиентов меняются очень быстро: ценовая конкуренция
+    переходит в конкуренцию удобства и сервиса – клиенты ждут «цифрового» уровня сервиса от всех от всех провайдеров, с
+    которыми они взаимодействуют, хотят больше, чем просто «хороший продукт». На мастер-классе мы поговорим о новых
+    реалиях и требованиях к профессии, о важных решениях, которые должен принять любой менеджер для своего успеха.
   </p>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aspernatur aut beatae dolores et ex illo
-    impedit optio pariatur, perspiciatis, quo vel? Amet architecto assumenda at consectetur culpa deserunt dolore
-    dolorem doloremque dolores earum eligendi enim eos est excepturi explicabo id libero magnam maxime natus
-    nesciunt nihil non odio odit officia officiis quia rerum sapiente soluta, ullam vel? A ad adipisci, aut
-    blanditiis cum deleniti dicta dolores eius est laborum libero obcaecati officiis possimus quas quis quisquam
-    temporibus ut. A accusantium alias aliquam aliquid at blanditiis consequuntur, culpa doloribus ea et explicabo
-    fugiat id illum laboriosam laudantium libero maiores nihil placeat possimus praesentium quia quibusdam quo
-    ratione recusandae repellat repellendus rerum, similique sit soluta sunt temporibus totam unde ut velit vero
-    voluptas voluptatem? Ab accusantium ad animi architecto assumenda at blanditiis culpa cum ea eveniet magni,
-    molestiae mollitia nam non, perferendis perspiciatis provident quae quaerat qui quia quibusdam rem rerum sed
-    soluta tempora temporibus tenetur! Assumenda commodi culpa cum deserunt dolorem exercitationem expedita iste
-    laboriosam magnam nam necessitatibus obcaecati quam quas quibusdam, quidem quis ratione repellendus tempore
-    tenetur voluptatum.
+    Штатная программа для перепаковки видео из контейнера «264» в контейнер «avi» давала разные результаты по поводу
+    частоты кадров. В случае с видео, которые были записаны в режиме высокого разрешения (704*576) частота кадров
+    составила 20 кадров/сек. А в случае с низким разрешением (352*288) – 25 кадров/сек. Эту информацию выдаёт утилита
+    «MediaInfo» Она же выдаёт то, что <b>размер видео при любом случае единый</b>: 720*576, причём размер видеопотока
+    (эта же утилита сообщает) — 704*576 или 352*288. Большинство плееров разворачиваются именно под размер видеопотока.
+    Однако встречался мне плеер, который некорректно отображал полуэкранный режим при воспроизведении файла 352*288. Я
+    хотел исправить этот незначительный недостаток штатного перепаковщика, заглянув в байты содержания видеопотока и
+    вытащив оттуда информацию о размере кадра. Но на скорую руку этого мне сделать не удалось. Вышесказанное
+    продемонстрировано на рисунке ниже.
   </p>
+  <p>
+    В основной функции, кроме организации каталогов, происходит считывание входного файла функцией сканирования. В
+    зависимости от того, что возвратила эта функция, происходят дальнейшие действия. Если это заголовки видеопотоков, то
+    формируются в выходной avi файл соответствующие заголовки. Там они именуются по-другому: «00db» — это заголовок
+    блока видеопотока опорного кадра, а «00dc» — для сжатого кадра. После операции перепаковки (переписывания слов)
+    перед новым вновь встретившимся заголовком происходит расчёт размера перепакованного содержимого и запись этого
+    значения в поле, которое следует сразу за заголовком только что обработанного потока. Если при сканировании
+    встретился заголовок аудиопотока, то формируется в выходной avi файл имя заголовка «03wb» и тут же в цикле
+    происходит декодирование аудиопотока из ADPCM в PCM одновременно с записью декодированного содержимого в avi файл.
+    Одновременно со всем вышесказанным происходит фиксирование краткой информации (оглавления) во временный файл
+    индексов «index». Функцию сканирования можно было не делать, а всё писать в основной функции. Но тогда программа бы
+    получилась очень громоздкой и практически сложно читаемой.
+  </p>
+</div>
+<div>
+  &nbsp;
 </div>
