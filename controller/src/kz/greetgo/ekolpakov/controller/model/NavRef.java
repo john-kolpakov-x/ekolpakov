@@ -15,8 +15,8 @@ public class NavRef {
       refStr = refStr.substring(1);
     }
     String[] split = refStr.split("~");
-    ret.title = split[1].trim();
-    ret.ref = split[2].trim();
+    ret.title = split[0].trim();
+    ret.ref = split[1].trim();
     return ret;
   }
 

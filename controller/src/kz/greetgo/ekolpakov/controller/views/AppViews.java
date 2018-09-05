@@ -10,6 +10,8 @@ import kz.greetgo.mvc.interfaces.RequestTunnel;
 import kz.greetgo.mvc.interfaces.Views;
 import kz.greetgo.mvc.model.MvcModelData;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.lang.reflect.Method;
 
 @Bean
@@ -31,7 +33,7 @@ public class AppViews implements Views {
   public BeanGetter<VelocityTemplates> templates;
 
   @Override
-  public void performRequest(MethodInvoker methodInvoker) {
+  public void performRequest(MethodInvoker methodInvoker) throws Exception {
     MethodInvokedResult invokedResult = methodInvoker.invoke();
 
     if (invokedResult.tryDefaultRender()) {
@@ -59,10 +61,15 @@ public class AppViews implements Views {
 
   }
 
-  private void performError(Throwable error, RequestTunnel tunnel) {
+  private void performError(Throwable error, RequestTunnel tunnel) throws Exception {
     log.error("Request error", error);
     MvcModelData model = new MvcModelData();
-    model.setParam("error", error);
+    model.setParam("errorMessage", error.getMessage());
+    ByteArrayOutputStream bOut = new ByteArrayOutputStream();
+    try (PrintStream printStream = new PrintStream(bOut, false, "UTF-8")) {
+      error.printStackTrace(printStream);
+    }
+    model.setParam("stackTrace", bOut.toString("UTF-8"));
     String result = templates.get().evaluate("error.vm", model);
     tunnel.setResponseHeader("Content-Type", "text/html; charset=utf-8");
     tunnel.getResponseWriter().write(result);
