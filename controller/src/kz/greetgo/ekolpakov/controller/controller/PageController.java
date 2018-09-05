@@ -14,12 +14,6 @@ import java.util.List;
 @ControllerPrefix("/page")
 public class PageController implements Controller {
 
-  @OnGet("/asd")
-  public String asd(MvcModel model) {
-    model.setParam("asd", "Hello from asd");
-    return "asd.vm";
-  }
-
   @OnGet("/forum")
   public String forum(MvcModel model) {
     model.setParam("nav", getNav());
