@@ -1,0 +1,15 @@
+<div class="header-panel">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-1">
+        <div class="nav">
+          <ul>
+            #foreach($ref in $nav)
+              <li><a href="$ref.ref" class="#if($ref.active)active#end">$ref.title</a></li>
+            #end
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

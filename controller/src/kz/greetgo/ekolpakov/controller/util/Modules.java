@@ -1,6 +1,5 @@
 package kz.greetgo.ekolpakov.controller.util;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -18,5 +17,9 @@ public class Modules {
 
   public static Path client() {
     return findRoot(Paths.get(".")).resolve("client");
+  }
+
+  public static Path clientHtml() {
+    return findRoot(Paths.get(".")).resolve("client-html");
   }
 }

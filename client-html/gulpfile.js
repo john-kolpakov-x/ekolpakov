@@ -91,8 +91,10 @@ task('browser-sync', () => {
   gulp.watch(paths.destWatch).on('change', browserSync.reload);
 });
 
-task('watch', ser(
+task('serve', ser(
   'clean',
   par('sass', 'rigger', 'img', 'copy-bootstrap-grid'),
-  par('sass-watch', 'rigger-watch', 'img-watch', 'browser-sync'))
+  par('sass-watch', 'rigger-watch', 'img-watch'))
 );
+
+task('watch', par('serve', 'browser-sync'));

@@ -8,6 +8,7 @@
   padding-bottom: 1px;
   position: relative;
   text-align: justify;
+
   p::first-letter {
     font-size: 2rem;
     font-family: 'Playfair Display', serif;
@@ -35,7 +36,7 @@
     line-height: 0.6rem;
     top: 0.25rem;
     right: 1.5rem;
-    a {
+    a, a-a {
       color: lighten($color-ref, 30%);
       text-decoration: none;
     }

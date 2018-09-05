@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "gulp": "gulp",
-    "start": "gulp watch"
+    "start": "gulp watch",
+    "dev": "gulp serve"
   },
   "author": "ekolpakov",
   "license": "MIT",
