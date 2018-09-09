@@ -18,9 +18,10 @@ public class DebugServer implements HasAfterInject {
 
   public final Server server = new Server(PORT);
 
-  public BeanGetter<Utf8FilterRegistration> utf8FilterRegistration;
-  public BeanGetter<CrossOriginFilterRegistration> crossOriginFilterRegistration;
+  public BeanGetter<Utf8Filter> utf8Filter;
+  public BeanGetter<CrossOriginFilter> crossOriginFilter;
   public BeanGetter<JettyControllerServlet> jettyControllerServlet;
+  public BeanGetter<ForwardFilter> forwardFilter;
 
   @Override
   public void afterInject() {
@@ -32,8 +33,10 @@ public class DebugServer implements HasAfterInject {
 
     WebAppContext webAppServlet = new WebAppContext(dist.getAbsolutePath(), "/");
 
-    utf8FilterRegistration.get().registerTo(webAppServlet);
-    crossOriginFilterRegistration.get().registerTo(webAppServlet);
+    utf8Filter.get().registerTo(webAppServlet);
+    crossOriginFilter.get().registerTo(webAppServlet);
+    forwardFilter.get().registerTo(webAppServlet);
+
     jettyControllerServlet.get().registerTo(webAppServlet);
 
     server.setHandler(webAppServlet);

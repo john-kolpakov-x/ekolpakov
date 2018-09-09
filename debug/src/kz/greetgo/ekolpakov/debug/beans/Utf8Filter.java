@@ -15,13 +15,13 @@ import java.io.IOException;
 import java.util.EnumSet;
 
 @Bean
-public class Utf8FilterRegistration implements  Filter {
+public class Utf8Filter implements Filter {
   public void registerTo(WebAppContext webAppContext) {
     webAppContext.addFilter(new FilterHolder(this), "/*", EnumSet.of(DispatcherType.INCLUDE, DispatcherType.REQUEST));
   }
 
   @Override
-  public void init(FilterConfig filterConfig) throws ServletException {}
+  public void init(FilterConfig filterConfig) {}
 
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

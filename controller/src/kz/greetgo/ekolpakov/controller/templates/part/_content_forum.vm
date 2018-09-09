@@ -1,4 +1,4 @@
-#foreach($row in $content)
+#foreach($row in $page.list)
 <!-- MESSAGE START -->
 <div class="row" id="$row.id">
   <div class="col-md-8 offset-1">
@@ -24,7 +24,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    location.href = "#$currentId";
+    location.href = "#$page.currentMessageId";
   });
 </script>
 

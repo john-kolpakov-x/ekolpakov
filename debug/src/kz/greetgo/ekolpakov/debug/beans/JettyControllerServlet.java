@@ -4,7 +4,7 @@ import kz.greetgo.depinject.core.Bean;
 import kz.greetgo.depinject.core.BeanGetter;
 import kz.greetgo.ekolpakov.controller.util.Controller;
 import kz.greetgo.ekolpakov.controller.views.AppViews;
-import kz.greetgo.mvc.JettyWarServlet;
+import kz.greetgo.ekolpakov.debug.util.JettyWarServletAbstract;
 import kz.greetgo.mvc.builder.ExecDefinition;
 import kz.greetgo.mvc.interfaces.Views;
 
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Bean
-public class JettyControllerServlet extends JettyWarServlet {
+public class JettyControllerServlet extends JettyWarServletAbstract {
 
   public BeanGetter<List<Controller>> controllerList;
 

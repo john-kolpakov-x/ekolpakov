@@ -18,7 +18,7 @@ import java.util.EnumSet;
 import java.util.Enumeration;
 
 @Bean
-public class CrossOriginFilterRegistration implements Filter {
+public class CrossOriginFilter implements Filter {
 
   public void registerTo(WebAppContext webAppContext) {
     webAppContext.addFilter(new FilterHolder(this), "/*", EnumSet.of(DispatcherType.REQUEST));
