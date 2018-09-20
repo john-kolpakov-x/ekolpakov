@@ -1,9 +1,26 @@
 package kz.greetgo.ekolpakov.register.impl;
 
+import com.mongodb.client.model.Filters;
 import kz.greetgo.depinject.core.Bean;
+import kz.greetgo.depinject.core.BeanGetter;
 import kz.greetgo.ekolpakov.controller.model.ForumMessage;
 import kz.greetgo.ekolpakov.controller.model.ForumMessagePage;
+import kz.greetgo.ekolpakov.controller.model.ForumRecord;
+import kz.greetgo.ekolpakov.controller.model.ForumToSave;
+import kz.greetgo.ekolpakov.controller.register.AuthRegister;
 import kz.greetgo.ekolpakov.controller.register.ForumRegister;
+import kz.greetgo.ekolpakov.register.z_etc.MongodbSource;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Optional;
+
+import static com.mongodb.client.model.Projections.include;
+import static java.util.Collections.singletonList;
+import static kz.greetgo.ekolpakov.register.z_etc.MongoUtil.toId;
+import static kz.greetgo.ekolpakov.register.z_etc.MongoUtil.toStr;
 
 @Bean
 public class ForumRegisterImpl implements ForumRegister {
@@ -17,6 +34,63 @@ public class ForumRegisterImpl implements ForumRegister {
     ret.list.add(message4());
     ret.currentMessageId = message4().id;
     return ret;
+  }
+
+  public BeanGetter<MongodbSource> mongodbSource;
+
+  public BeanGetter<AuthRegister> authRegister;
+
+  @Override
+  public Optional<ForumRecord> save(ForumToSave forumToSave) {
+
+    Document set = new Document();
+    set.append("code", forumToSave.code);
+    set.append("title", forumToSave.title);
+    set.append("messageIdList", new ArrayList<>());
+
+    String author = authRegister.get().currentSession().map(s -> s.personId).orElse(null);
+
+    set.append("author", author);
+    set.append("createdAt", new Date());
+
+    Document history = new Document();
+    set.append("history", history);
+    setFirstHistory(history, author, "code", forumToSave.code);
+    setFirstHistory(history, author, "title", forumToSave.title);
+
+    mongodbSource.get().forum().insertOne(set);
+
+    return loadForumRecord(toId(set.get("_id")));
+  }
+
+  private void setFirstHistory(Document history, String author, String field, Object fieldValue) {
+    Document value = new Document();
+    value.append("value", fieldValue);
+    value.append("time", new Date());
+    value.append("changer", author);
+
+    history.append(field, singletonList(value));
+  }
+
+  private Optional<ForumRecord> loadForumRecord(ObjectId id) {
+
+    Document first = mongodbSource.get().forum()
+      .find(Filters.eq("_id", id))
+      .projection(include("code", "title"))
+      .limit(1)
+      .first();
+
+    if (first == null) {
+      return Optional.empty();
+    }
+
+    {
+      ForumRecord ret = new ForumRecord();
+      ret.id = id.toHexString();
+      ret.code = toStr(first.get("code"));
+      ret.title = toStr(first.get("title"));
+      return Optional.of(ret);
+    }
   }
 
   private ForumMessage message1() {

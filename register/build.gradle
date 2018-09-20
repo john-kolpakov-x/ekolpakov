@@ -4,4 +4,8 @@ dependencies {
   compile "kz.greetgo:greetgo.fstorage:2.0.0"
   compile "org.mongodb:mongo-java-driver:3.8.1"
   compile "org.slf4j:slf4j-log4j12:1.7.25"
+
+  compile 'kz.greetgo:greetgo.security:0.0.2'
+
+  testCompile "kz.greetgo.depinject:greetgo.depinject.testng:$depinjectVersion"
 }
