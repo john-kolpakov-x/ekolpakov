@@ -1,0 +1,39 @@
+@mixin brd1() {
+  border: 1px royalblue solid;
+}
+
+@mixin brd2() {
+  border: 1px #4fe159 solid;
+}
+
+@mixin brd3() {
+  border: 1px #0b1c13 solid;
+}
+
+@mixin brd4() {
+  border: 1px #91a0a0 solid;
+}
+
+@mixin brd5() {
+  border: 1px #db2fe1 solid;
+}
+
+.brd1 {
+  @include brd1;
+}
+
+.brd2 {
+  @include brd2;
+}
+
+.brd3 {
+  @include brd3;
+}
+
+.brd4 {
+  @include brd4;
+}
+
+.brd5 {
+  @include brd5;
+}

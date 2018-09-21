@@ -44,6 +44,7 @@ task('rigger', () => {
   return gulp.src(paths.rigger.src)
     .pipe(rigger())
     .pipe(gulp.dest(paths.rigger.dest))
+    .pipe(browserSync.stream())
     ;
 });
 
@@ -59,7 +60,9 @@ task('sass', () => {
       importer: tildeImporter,
     }).on('error', sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(browserSync.stream())
+    ;
 });
 
 task('sass-watch', () => {
