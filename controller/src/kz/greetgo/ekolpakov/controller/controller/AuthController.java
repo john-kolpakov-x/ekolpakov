@@ -5,7 +5,6 @@ import kz.greetgo.ekolpakov.controller.util.Controller;
 import kz.greetgo.mvc.annotations.AsIs;
 import kz.greetgo.mvc.annotations.on_methods.ControllerPrefix;
 import kz.greetgo.mvc.annotations.on_methods.OnGet;
-import kz.greetgo.mvc.model.MvcModel;
 
 @Bean
 @ControllerPrefix("/auth")
