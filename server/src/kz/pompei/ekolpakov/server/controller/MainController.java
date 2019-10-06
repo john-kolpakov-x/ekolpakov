@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-  @GetMapping()
+  @GetMapping("/")
   public String index() {
+    System.out.println("5426gh :: goto index()");
     return "index";
   }
 
