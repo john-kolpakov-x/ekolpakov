@@ -1,3 +1,3 @@
-import {registerComboSingle} from "./components/combo-single/combo.single";
+import {defineComboSingle} from "./components/combo-single/combo.single";
 
-registerComboSingle();
+defineComboSingle();
